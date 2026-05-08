@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Enhanced Chat App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="app">
+
+    <!-- Header -->
+    <div class="header">
+      <div class="header-info">
+        <div class="avatar" id="headerAvatar">💬</div>
+        <div>
+          <h2>Enhanced Chat</h2>
+          <span class="status">● Online</span>
+        </div>
+      </div>
+
+      <div class="header-controls">
+        <button class="icon-btn" id="soundBtn" title="Toggle notification sound">🔔</button>
+        <button class="icon-btn" id="themeBtn" title="Change theme">🎨</button>
+        <button class="icon-btn" id="userBtn" title="Change user">👤</button>
+      </div>
+    </div>
+
+    <!-- Chat Box -->
+    <div class="chat-box" id="chatBox">
+      <!-- Welcome -->
+      <div class="message bot">
+        <div class="bubble">
+          👋 Welcome! Set your name (👤), pick a theme (🎨), and say hi!
+        </div>
+        <span class="time" id="welcomeTime"></span>
+      </div>
+    </div>
+
+    <!-- Input Area -->
+    <div class="input-area">
+      <button class="icon-btn" id="emojiBtn" title="Emoji picker">😀</button>
+      <input
+        type="text"
+        id="messageInput"
+        placeholder="Type a message..."
+        autocomplete="off"
+      />
+      <button id="sendBtn" title="Send">➤</button>
+    </div>
+
+    <!-- Emoji Picker (hidden by default) -->
+    <div class="emoji-picker" id="emojiPicker" hidden>
+      <div class="emoji-grid">
+        <!-- Common emojis -->
+        <span>😀</span><span>😃</span><span>😄</span><span>😁</span><span>😆</span><span>😅</span>
+        <span>😂</span><span>🤣</span><span>😊</span><span>😇</span><span>🙂</span><span>🙃</span>
+        <span>😉</span><span>😌</span><span>😍</span><span>🥰</span><span>😘</span><span>😗</span>
+        <span>😙</span><span>😚</span><span>😋</span><span>😛</span><span>😝</span><span>😜</span>
+        <span>🤪</span><span>🤨</span><span>🧐</span><span>🤓</span><span>😎</span><span>🥳</span>
+        <span>😏</span><span>😒</span><span>😞</span><span>😔</span><span>😟</span><span>😕</span>
+        <span>🙁</span><span>☹️</span><span>😣</span><span>😖</span><span>😫</span><span>😩</span>
+        <span>🥺</span><span>😢</span><span>😭</span><span>😤</span><span>😠</span><span>😡</span>
+        <span>🤬</span><span>🤯</span><span>😳</span><span>🥵</span><span>🥶</span><span>😱</span>
+        <span>😨</span><span>😰</span><span>😥</span><span>😓</span><span>🤗</span><span>🤔</span>
+        <span>🤭</span><span>🤫</span><span>🤥</span><span>😶</span><span>😐</span><span>😑</span>
+        <span>😬</span><span>🙄</span><span>😯</span><span>😦</span><span>😧</span><span>😮</span>
+        <span>😲</span><span>🥱</span><span>😴</span><span>🤤</span><span>😪</span><span>😵</span>
+        <span>🤐</span><span>🥴</span><span>🤢</span><span>🤮</span><span>🤧</span><span>😷</span>
+        <span>🤒</span><span>🤕</span><span>🤑</span><span>🤠</span><span>😈</span><span>👿</span>
+        <span>👍</span><span>👎</span><span>👏</span><span>🙌</span><span>🙏</span><span>💪</span>
+        <span>🔥</span><span>✨</span><span>🎉</span><span>✅</span><span>❌</span><span>❤️</span>
+      </div>
+      <div class="emoji-footer">
+        <button id="closeEmojiBtn" class="small-btn">Close</button>
+      </div>
+    </div>
+
+    <!-- Modals (simple) -->
+    <!-- User Modal -->
+    <dialog id="userModal">
+      <form method="dialog" id="userForm">
+        <h3>👤 Choose Your User</h3>
+        <label>
+          Username
+          <input id="usernameInput" placeholder="e.g., Alex" required />
+        </label>
+        <label>
+          Avatar (emoji)
+          <input id="avatarInput" placeholder="e.g., 😎" maxlength="4" />
+        </label>
+        <label>
+          Bubble Color
+          <input id="colorInput" type="color" value="#dcf8c6" />
+        </label>
+        <menu>
+          <button value="cancel">Cancel</button>
+          <button id="saveUserBtn" value="default">Save</button>
+        </menu>
+      </form>
+    </dialog>
+
+    <!-- Theme Modal -->
+    <dialog id="themeModal">
+      <form method="dialog">
+        <h3>🎨 Choose Theme</h3>
+        <div class="theme-options">
+          <button class="theme-option" data-theme="light">☀️ Light</button>
+          <button class="theme-option" data-theme="dark">🌙 Dark</button>
+          <button class="theme-option" data-theme="whatsapp">🟩 WhatsApp</button>
+          <button class="theme-option" data-theme="cozy">🧸 Cozy</button>
+        </div>
+        <menu>
+          <button value="cancel">Close</button>
+        </menu>
+      </form>
+    </dialog>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
